@@ -1,0 +1,31 @@
+<div class="flex items-center min-h-screen bg-white dark:bg-gray-900">
+  <div class="container mx-auto">
+    <div class="max-w-md mx-auto my-10">
+      <div class="text-center">
+        <h1 class="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">Sign in</h1>
+        <p class="text-gray-500 dark:text-gray-400">Sign in to access your account</p>
+        <p *ngIf="authenticated$ | async">LOGGED IN</p>
+      </div>
+      <div class="m-7">
+        <form nz-form [formGroup]="loginForm" class="login-form" (ngSubmit)="submit()">
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Please input your username!">
+              <nz-input-group>
+                <input type="text" nz-input formControlName="username" placeholder="Email" />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-control nzErrorTip="Please input your Password!">
+              <nz-input-group>
+                <input type="password" nz-input formControlName="password" placeholder="Password" />
+              </nz-input-group>
+            </nz-form-control>
+          </nz-form-item>
+          <button nz-button class="login-form-button login-form-margin">Log in</button>
+          Or <a routerLink="/register"> register now! </a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

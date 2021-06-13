@@ -1,0 +1,27 @@
+<nz-layout>
+  <nz-header>
+    <div class="content-container">
+      <div class="logo">
+      <div class="text-lg">TEST</div>
+      </div>
+      <ul nz-menu nzTheme="dark" nzMode="horizontal">
+        <div nz-menu-item class="text-xl text-white">testdemoproject</div>
+        <li nz-menu-item>nav 1</li>
+        <li nz-menu-item>nav 2</li>
+        <li nz-menu-item>nav 3</li>
+        
+        <li *ngIf="authenticated$ | async" nz-menu-item (click)="logout()">Logout</li>
+        <li *ngIf="(authenticated$ | async) != true" nz-menu-item><a routerLink="/login">Login</a></li>
+        
+      </ul>
+    </div>
+  </nz-header>
+  <nz-content>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </nz-content>
+  <nz-footer>
+    <div class="content-container" i18n>Jarpis ©2020</div>
+  </nz-footer>
+</nz-layout>
